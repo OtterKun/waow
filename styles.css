@@ -12,3 +12,9 @@ div {
     text-align: center;
     padding: 2;
 }
+.nao-mostrar {
+    display: none;
+}
+.nao-mostrar:target {
+    display: block;
+}
