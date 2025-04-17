@@ -1,0 +1,14 @@
+h1 {
+    color: pink;
+    text-align: center;
+}
+.container {
+    color: lightgreen;
+}
+p {
+    text-align: center;
+}
+div {    
+    text-align: center;
+    padding: 2;
+}
