@@ -2,19 +2,12 @@ h1 {
     color: pink;
     text-align: center;
 }
-.container {
-    color: lightgreen;
+img {
+  float: left;
 }
-p {
-    text-align: center;
+.dialog { 
+  color: lightcyan;
 }
-div {    
-    text-align: center;
-    padding: 2;
-}
-.nao-mostrar {
-    display: none;
-}
-.nao-mostrar:target {
-    display: block;
+.mage { 
+ margin: 0px 10px 0px 0px;
 }
