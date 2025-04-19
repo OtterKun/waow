@@ -33,3 +33,14 @@ body {
   color: #86cecb;
   text-align: center;
 }
+.nextButton {
+  background-color: #137a7f;
+  color: white;
+  margin-left: 705px;
+  max-width: 55px;
+  border: 5px;
+  border-radius: 3px;
+}
+.hidden {
+  display: none;
+}

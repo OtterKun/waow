@@ -18,13 +18,19 @@
         </p>
       </nav>
     </div>
-    <h1>The mage ponders what he'll do to the Stranger</h1>      
-        <p class="dialog">Welcome Stranger, I see you seek treasures.
+    <h1>The mage ponders what he'll do to the Stranger</h1> 
+      <div>
         <a href="https://youtu.be/od-R1OvUVuw?si=1BoMdy5CRSjlf-zA&t=57" target="_blank">
           <img class="mage" src="img/pondering.jpg" alt="img/pondering-harder.jpg">
-        </a>
-        <p id="next-dialog">Next.</p>
-        </p>
+        </a>        
+        <p class="dialog">Welcome Stranger, I see that you seek treasures.</p>
+        <div class="hidden">
+          <input type="text" id="usrName" placeholder="Stranger">
+        </div>
+        <div class="nextButton">
+          <p onclick="nextDialog()">Next.</p>
+        </div>
+      </div>
       </div>
   </body>
-</html>>
+</html>
