@@ -11,3 +11,23 @@ img {
 .mage { 
  margin: 0px 10px 0px 0px;
 }
+.nav { 
+ background-color: #86cecb;
+ margin: 10px 10px 10px 10px;
+ border: 5px;
+ border-radius: 15px;
+}
+.navbutton {
+  color: #373b3e;
+}
+body {
+  background-color: #373b3e;
+}
+.title {
+  margin: 15px;
+  color: #373b3e;
+}
+.greetings {
+  color: #86cecb;
+  text-align: center;
+}
