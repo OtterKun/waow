@@ -16,9 +16,11 @@ img {
  margin: 10px 10px 10px 10px;
  border: 5px;
  border-radius: 15px;
+ display: flex;
 }
 .navbutton {
   color: #373b3e;
+  margin: 15px; 
 }
 body {
   background-color: #373b3e;
