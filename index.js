@@ -1,11 +1,15 @@
-const userData = {
-  usrName: "",
-  money: 100,
-  timestamp: new Date().toISOString()
-};
+//Aqui eu vou carregar as informações que estão no localStorage para poder usar elas como base para em qual ponto do dialogo tem que estar, quais itens tem coisas do tipo!
+window.loadInfo = function () {
+  const name = localStorage.getItem('userName');  
+  const dialog = document.getElementsByClassName('dialog')[0];
+  const topText = document.getElementById('topText');
 
-//Aqui eu quero carregar as informações do Json, por que? Eu quero que você possa sair e entrar do shop e do abode sem perder acesso as informações, tanto que é por isso que eu mudei o Json de um arquivo q vc baixa para localStorage, só tenho que descobrir como agr lmao
-window.loadInfo = function () {  
+  if (name != "Stranger") {  
+    console.log(name)
+
+    dialog.textContent = `I welcome thee, ${name}! if it's treasure that thee seek, you must first prove thyself.`
+    topText.textContent = `The mage ponders what he'll do to ${name}`
+  }
 }
 // windows aqui é uma variavel/declaração global para que em /mageabode.html ela possa ser chamada, nesse caso o nome dela vai ser nextDialog e ela chama a função abaixo
 window.nextDialog = function () {
@@ -23,12 +27,8 @@ window.nextDialog = function () {
   else if (dialog.textContent.trim() === "Then you must first tell me your Name:") {
     const userName = userInput.value.trim() || 'Stranger';
     //Aqui ta criando o Json para baixar posteriormente
-    const userData = {
-      usrName: userName,
-      timestamp: new Date().toISOString()
-    };
     //criando o Json
-    localStorage.setItem('userData', JSON.stringify(userData));
+    localStorage.setItem('userName', userName);
 
     //auto explicatório porém bom saber que pode ser usada crase para strings permitindo ter apostrofe no meio de uma string sem quebrar a mesma, tentei usar com "" porém ai o ${userName} quebrou
     dialog.textContent = `I welcome thee, ${userName}! if it's treasure that thee seek, you must first prove thyself.`
