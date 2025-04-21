@@ -1,3 +1,12 @@
+const userData = {
+  usrName: "",
+  money: 100,
+  timestamp: new Date().toISOString()
+};
+
+//Aqui eu quero carregar as informações do Json, por que? Eu quero que você possa sair e entrar do shop e do abode sem perder acesso as informações, tanto que é por isso que eu mudei o Json de um arquivo q vc baixa para localStorage, só tenho que descobrir como agr lmao
+window.loadInfo = function () {  
+}
 // windows aqui é uma variavel/declaração global para que em /mageabode.html ela possa ser chamada, nesse caso o nome dela vai ser nextDialog e ela chama a função abaixo
 window.nextDialog = function () {
   //Aqui a const dialog esta declarando que ela é == o valor do paragrafo com a classe dialog no /mageabode.html
@@ -19,18 +28,7 @@ window.nextDialog = function () {
       timestamp: new Date().toISOString()
     };
     //criando o Json
-    const dataStr = JSON.stringify(userData, null, 2);
-    const blob = new Blob([dataStr], { type: "application/json"});
-    const url = URL.createObjectURL(blob);
-    //baixando o Json, eu quero depois verificar se tem algum jeito de fazer isso baixar direto na root invés de na pasta de downloads, assim eu não preciso procurar pelo userData.json na pasta de download e já cato da src.
-    const downloadLink = document.createElement('a');
-    downloadLink.href = url;
-    downloadLink.download = 'userData.Json';
-    document.body.appendChild(downloadLink);
-    downloadLink.click();
-    //Aqui para ser honesto só peguei da IA, pelo o que entendi isso ta limpando de memória a url de download para não ficar la, parece mais algo para lidar com vunerabilidades doq algo obrigatório, dito isso é bom ter uma ideia de como fazer.
-    URL.revokeObjectURL(url);
-    document.body.removeChild(downloadLink);
+    localStorage.setItem('userData', JSON.stringify(userData));
 
     //auto explicatório porém bom saber que pode ser usada crase para strings permitindo ter apostrofe no meio de uma string sem quebrar a mesma, tentei usar com "" porém ai o ${userName} quebrou
     dialog.textContent = `I welcome thee, ${userName}! if it's treasure that thee seek, you must first prove thyself.`
@@ -38,4 +36,6 @@ window.nextDialog = function () {
     topText.textContent = `The mage ponders what he'll do to ${userName}`
     userInput.classList.add("hidden");  
   }
+//  else if (dialog.textContent.includes("you must first prove thyself.")); {
+//    dialog.textContent = "I'll summon a powerful foe, which thou must defeat in battle!"
 }
