@@ -10,6 +10,8 @@ img {
 }
 .mage { 
  margin: 0px 10px 0px 0px;
+ width: 700px;
+ height: 700px;
 }
 .nav { 
  background-color: #86cecb;
@@ -39,8 +41,14 @@ body {
   margin-left: 705px;
   max-width: 55px;
   border: 5px;
-  border-radius: 3px;
+  border-radius: 3px;  
 }
 .hidden {
   display: none;
+}
+.nextHover:hover {
+  background-color: #137a7f;
+}
+.money {
+  color: yellow;
 }

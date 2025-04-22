@@ -4,6 +4,8 @@ window.loadInfo = function () {
   const dialog = document.getElementsByClassName('dialog')[0];
   const topText = document.getElementById('topText');
 
+  localStorage.setItem('money', '100')
+
   if (name != "Stranger") {  
     console.log(name)
 
@@ -36,6 +38,21 @@ window.nextDialog = function () {
     topText.textContent = `The mage ponders what he'll do to ${userName}`
     userInput.classList.add("hidden");  
   }
-//  else if (dialog.textContent.includes("you must first prove thyself.")); {
-//    dialog.textContent = "I'll summon a powerful foe, which thou must defeat in battle!"
+  else if (dialog.textContent.includes("you must first prove thyself.")); {
+    dialog.textContent = "I'll summon a powerful foe, which thou must defeat in battle!"
+  }
+}
+
+window.buyItem = function () {
+  const item = document.getElementById('winButton');
+  const currentMoney = localStorage.getItem('money')
+  console.log(currentMoney);
+
+  if (item.textContent === "Win Button - 100") {
+    if (parseFloat(currentMoney) >= 100) {
+      currentMoney = currentMoney - 100
+      localStorage.setItem('money', currentMoney);
+      console.log(currentMoney);
+    }    
+  }
 }
