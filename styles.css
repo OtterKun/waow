@@ -35,19 +35,34 @@ body {
   color: #86cecb;
   text-align: center;
 }
+.resetButton {
+  color: #86cecb;
+  text-align: center;
+  margin-right: 700px;
+  margin-left: 700px;
+}
+.resetButton:hover {
+  background-color: #ec2323;
+  color: #fbe5e5;
+  cursor: pointer;
+  border-radius: 25px;
+}
 .nextButton {
   background-color: #137a7f;
   color: white;
   margin-left: 705px;
   max-width: 55px;
   border: 5px;
-  border-radius: 3px;  
+  border-radius: 10px;  
 }
 .hidden {
   display: none;
 }
 .nextHover:hover {
-  background-color: #137a7f;
+  background-color: #86cecb;
+  color: #137a7f;
+  cursor: pointer;
+  border-radius: 10px;
 }
 .money {
   color: yellow;

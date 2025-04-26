@@ -4,14 +4,23 @@ window.loadInfo = function () {
   const dialog = document.getElementsByClassName('dialog')[0];
   const topText = document.getElementById('topText');
 
-  localStorage.setItem('money', '100')
+  localStorage.setItem('money', '100');
+  const money = localStorage.getItem('money');
+  console.log("texto", money);
 
-  if (name != "Stranger") {  
+  if (name != "Stranger" && name != null) {  
     console.log(name)
 
     dialog.textContent = `I welcome thee, ${name}! if it's treasure that thee seek, you must first prove thyself.`
     topText.textContent = `The mage ponders what he'll do to ${name}`
   }
+}
+
+window.reset = function()  {  
+  console.log("Past the .clear");
+  console.log(name);
+  localStorage.clear();
+  location.reload();
 }
 // windows aqui é uma variavel/declaração global para que em /mageabode.html ela possa ser chamada, nesse caso o nome dela vai ser nextDialog e ela chama a função abaixo
 window.nextDialog = function () {
@@ -24,6 +33,7 @@ window.nextDialog = function () {
   if (dialog.textContent.trim() === "Welcome Stranger, I see that you seek treasures.") {
     dialog.textContent = "Then you must first tell me your Name:"
     input.classList.remove("hidden");
+    return null;
   }
   //Aqui foi onde eu fiquei com bastente duvida do que tava fazendo. Infelizmente tive que usar do deepseek para me dar uma mão e achar o norte mas o ttldr é que isso vai verifcar se o dialogo esta na etapa de indicar o nome do usuário
   else if (dialog.textContent.trim() === "Then you must first tell me your Name:") {
@@ -37,22 +47,26 @@ window.nextDialog = function () {
 
     topText.textContent = `The mage ponders what he'll do to ${userName}`
     userInput.classList.add("hidden");  
+    return null;
   }
-  else if (dialog.textContent.includes("you must first prove thyself.")); {
+  else(dialog.textContent.includes("you must first prove thyself.")); {
     dialog.textContent = "I'll summon a powerful foe, which thou must defeat in battle!"
-  }
+    return null;
+  } 
 }
 
 window.buyItem = function () {
   const item = document.getElementById('winButton');
-  const currentMoney = localStorage.getItem('money')
-  console.log(currentMoney);
+  const currentMoney = localStorage.getItem('money');
+  let pocketMoney = Number(currentMoney);
+  console.log(typeof currentMoney);
 
-  if (item.textContent === "Win Button - 100") {
-    if (parseFloat(currentMoney) >= 100) {
-      currentMoney = currentMoney - 100
-      localStorage.setItem('money', currentMoney);
-      console.log(currentMoney);
+  if (item.textContent.trim() === "Win Button - 100") {
+    if (Number(currentMoney) >= 100) {
+      pocketMoney = pocketMoney - 100;
+      pocketMoney.toString();
+      localStorage.setItem('money', pocketMoney);
+      console.log(pocketMoney);
     }    
   }
 }
