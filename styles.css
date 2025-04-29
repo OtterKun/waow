@@ -67,3 +67,8 @@ body {
 .money {
   color: yellow;
 }
+.wButton:hover {
+  background-color:goldenrod;
+  border: 25px;
+  border-radius: 10px;
+}
